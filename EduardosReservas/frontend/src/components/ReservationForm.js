@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ReservationForm.css';  // <-- Importar estilos
 
 const ReservationForm = () => {
   const [customerName, setCustomerName] = useState('');
@@ -38,26 +39,23 @@ const ReservationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
+    <form className="reservation-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Nombre del cliente"
         value={customerName}
         onChange={e => setCustomerName(e.target.value)}
-        style={{ marginRight: '10px' }}
       />
       <input
         type="number"
         placeholder="Número de mesa"
         value={tableNumber}
         onChange={e => setTableNumber(e.target.value)}
-        style={{ marginRight: '10px', width: '120px' }}
       />
       <input
         type="datetime-local"
         value={time}
         onChange={e => setTime(e.target.value)}
-        style={{ marginRight: '10px' }}
       />
       <button type="submit">Crear Reserva</button>
     </form>
